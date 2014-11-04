@@ -1,0 +1,3 @@
+post-build=Android/full_gee/gee:4.4.2/KVT49L/eng.justinxu.20141027.230147:user/test-keys
+post-timestamp=1414422178
+pre-device=gee

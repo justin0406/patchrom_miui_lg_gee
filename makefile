@@ -1,12 +1,12 @@
 #
-# Makefile for ns
+# Makefile for optimus g
 #
 
 # The original zip file, MUST be specified by each product
 local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
-local-out-zip-file := 
+local-out-zip-file := MIUI_Gee.zip
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps :=
